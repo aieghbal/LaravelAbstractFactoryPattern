@@ -1,30 +1,36 @@
-# 🎯 آموزش الگوی Abstract Factory در لاراول
+# 🎯 Abstract Factory Pattern Tutorial in Laravel
 
-این پروژه یک مینی‌پروژه آموزشی است که نحوه پیاده‌سازی **الگوی طراحی Abstract Factory** را در فریم‌ورک **Laravel** نمایش می‌دهد. هدف این پروژه، درک بهتر معماری و جداسازی مسئولیت‌ها در زمان ایجاد اشیای پیچیده است.
-
----
-
-## 📖 محتوای آموزش
-
-* معرفی الگوی Abstract Factory
-* طراحی Interfaceها
-* پیاده‌سازی کلاس‌های مختلف فرم
-* پیاده‌سازی Factoryهای مرتبط
-* ایجاد یک Abstract Factory مرکزی
-* استفاده در کنترلر و روت‌ها
-* نمایش خروجی در ویوها
+This project is a small educational project that demonstrates how to implement the Abstract Factory design pattern in the Laravel framework. The goal is to better understand architecture and separation of responsibilities when creating complex objects.
 
 ---
 
-## 🏗️ معرفی الگوی Abstract Factory
+## 📖 Tutorial Contents
 
-> **Abstract Factory** یک الگوی طراحی Creational است که وظیفه دارد **خانواده‌ای از اشیا** را بدون مشخص کردن کلاس دقیق آن‌ها ایجاد کند.
+Introduction to the Abstract Factory pattern
 
-در این پروژه، ما یک سیستم ساده تولید **فرم‌های آنلاین** داریم که هر فرم رفتار و استایل متفاوتی دارد (مثل فرم تماس با ما و فرم نظرسنجی).
+Designing interfaces
+
+Implementing different form classes
+
+Implementing the related factories
+
+Creating a central Abstract Factory
+
+Using it in controllers and routes
+
+Displaying output in views
 
 ---
 
-## 📂 ساختار پوشه‌ها
+## 🏗️ Introduction to the Abstract Factory Pattern
+
+Abstract Factory is a Creational design pattern that creates families of related objects without specifying their concrete classes.
+
+In this project, we have a simple online form generation system where each form has different behavior and styling (e.g., a Contact Us form and a Survey form).
+
+---
+
+## 📂 Folder Structure
 
 ```
 app/
@@ -49,7 +55,7 @@ resources/views/forms/
 
 ---
 
-## ✨ مرحله 1: تعریف Interfaceها
+## ✨ Step 1: Define the Interfaces
 
 ```php
 namespace App\Factories\Interfaces;
@@ -66,7 +72,7 @@ interface FormFactoryInterface {
 
 ---
 
-## ✨ مرحله 2: پیاده‌سازی فرم‌ها
+## ✨ Step 2: Implement the Forms
 
 ```php
 namespace App\Factories\Forms;
@@ -97,7 +103,7 @@ class SurveyForm implements FormInterface {
 
 ---
 
-## ✨ مرحله 3: پیاده‌سازی Factoryها
+## ✨ Step 3: Implement the Factories
 
 ```php
 namespace App\Factories;
@@ -121,7 +127,7 @@ class SurveyFormFactory implements FormFactoryInterface {
 
 ---
 
-## ✨ مرحله 4: Abstract Factory
+## ✨Step 4: Abstract Factory
 
 ```php
 namespace App\Factories;
@@ -142,7 +148,7 @@ class FormAbstractFactory {
 
 ---
 
-## ✨ مرحله 5: کنترلر
+## ✨ Step 5: Controller
 
 ```php
 namespace App\Http\Controllers;
@@ -169,7 +175,7 @@ class FormController extends Controller {
 
 ---
 
-## ✨ مرحله 6: تعریف روت‌ها
+## ✨ Step 6: Define the Routes
 
 ```php
 use App\Http\Controllers\FormController;
@@ -180,7 +186,7 @@ Route::post('/form/{type}', [FormController::class, 'submit']);
 
 ---
 
-## ✨ مرحله 7: ویوها
+## ✨ Step 7: Views
 
 **resources/views/forms/contact.blade.php**
 
@@ -207,12 +213,15 @@ Route::post('/form/{type}', [FormController::class, 'submit']);
 
 ---
 
-## 🚀 نتیجه‌گیری
+## 🚀 Conclusion
 
-در این مینی‌پروژه یاد گرفتیم:
+In this mini-project, we learned:
 
-* چطور با استفاده از **Interface** و **Abstract Factory** ساخت اشیا را از منطق برنامه جدا کنیم.
-* چگونه فرم‌های مختلف با رفتار متفاوت ایجاد کنیم بدون اینکه در کنترلر وابستگی مستقیم به کلاس خاصی داشته باشیم.
-* این الگو باعث **کاهش Coupling** و **افزایش انعطاف‌پذیری** در پروژه می‌شود.
+How to use interfaces and Abstract Factory to separate object creation from application logic.
+
+How to create different forms with different behaviors without directly coupling controllers to specific classes.
+
+This pattern helps reduce coupling and increase flexibility in the project.
 
 ---
+📄 [Persian Version](./README.fa.md) 
